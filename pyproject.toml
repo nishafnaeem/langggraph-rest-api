@@ -1,0 +1,18 @@
+[project]
+name = "langgraph-rest-api"
+version = "0.1.0"
+description = "LangGraph REST API for creating and managing graph workflows"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "langgraph>=0.2.0",
+    "langchain>=0.3.0",
+    "fastapi>=0.104.0",
+    "uvicorn>=0.24.0",
+    "pydantic>=2.5.0",
+    "python-multipart>=0.0.6",
+    "grandalf>=0.8",
+    "langchain-anthropic>=0.3.21",
+    "python-dotenv>=1.1.1",
+    "pydantic-settings>=2.11.0",
+]
