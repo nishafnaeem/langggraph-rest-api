@@ -279,8 +279,13 @@ def main():
     tester.add_edges("formatter", before_nodes=["analyzer"])
     tester.get_graph_visualization()
     # Update edges for the analyzer to include multiple outputs
+<<<<<<< HEAD
     # tester.update_edges("analyzer", before_nodes=["input_processor"], after_nodes=["formatter", "validator"])
     # tester.get_graph_visualization()
+=======
+    tester.update_edges("analyzer", before_nodes=["input_processor"], after_nodes=["formatter", "validator"])
+    tester.get_graph_visualization()
+>>>>>>> 091f718 (Initial Commit)
     # Step 5: Update node configurations
     print("\n" + "=" * 50)
     print("STEP 5: Updating node configurations")

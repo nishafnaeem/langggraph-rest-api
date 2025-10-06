@@ -9,6 +9,7 @@ def update_dict(a: dict, b: dict) -> dict:
     a.update(b)
     return a
 
+
 # This is our graph state for now
 class GraphState(TypedDict):
     # Represents the input for the currently executing node - it's up to the executing node to set this value
@@ -16,8 +17,10 @@ class GraphState(TypedDict):
     # Shared dict to store the outputs of every node
     output: Annotated[dict[str, Any], update_dict]
 
+
 class BaseNodeConfig(BaseModel):
     name: str
+    input_nodes: list[str] | None
 
 
 class FunctionNodeConfig(BaseNodeConfig):
@@ -30,14 +33,20 @@ class AgentNodeConfig(BaseNodeConfig):
 
 class AddNodeRequest(BaseModel):
     config: FunctionNodeConfig | AgentNodeConfig
+    before_nodes: list[str] | None = None
+    after_nodes: list[str] | None = None
 
 
 class EdgeRequest(BaseModel):
-    source: str
-    target: str
+    before_nodes: list[str] | None = None
+    after_nodes: list[str] | None = None
 
 
 class AddEdgeRequest(EdgeRequest):
+    ...
+
+
+class UpdateEdgeRequest(EdgeRequest):
     ...
 
 
